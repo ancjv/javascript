@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Todo app Javascript</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+	<div class="wrapper">
+		<header class="todoapp">Todo App</header>
+		<div class="inputfield">
+			<input type="text" placeholder="Agrega tu nuevo TODO">
+			<button><i class="bx bxs-plus-circle"></i></button>	
+		</div>
+		<ul class="todolist">
+			<!-- Data comes from local storage
+				<li>Comprar una nueva laptop<span><i class="bx bxs-trash-alt"></i></span></li>
+				<li>Completar las tareas previas<span><i class="bx bxs-trash-alt"></i></span></li>	
+				<li>Crear un video para Youtube<span><i class="bx bxs-trash-alt"></i></span></li>
+				<li>Crear un nuevo sitio de portafolio<span><i class="bx bxs-trash-alt"></i></span></li> -->
+		</ul>
+		<div class="footer">
+			<span>Tu tienes <span class="pendingNumb"></span> tareas pendientes</span>
+			<button>Limpiar Todo</button>
+		</div>
+	</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
