@@ -33,8 +33,8 @@ addBtn.onclick = ()=>{
 
 // funcion para añadir lista de tareas dentro del ul
 function showTasks(){
-	let getLocalStorage = localStorage.getItem("Nuevo Todo"); // obtener el almacenamiento local
-	if(getLocalStorage == null){	// si el almacenamiento local es null
+	let getLocalStorage = localStorage.getItem("Nuevo Todo"); // obtiene el almacenamiento local
+	if(getLocalStorage == null){						      // si el almacenamiento local es null
 		listArr = []; // creando un array blanco
 	} else{
 		listArr = JSON.parse(getLocalStorage); // transformando la cadena json en un objeto js
@@ -50,24 +50,23 @@ function showTasks(){
 	listArr.forEach((element, index) =>{
 		newLiTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class="bx bxs-trash-alt"></i></span></li>`;
 	});
-	todolist.innerHTML = newLiTag; // adding new li tag inside ul tag
-	inputBox.value = ""; // once task added leave the input field blank
-}
+	todolist.innerHTML = newLiTag; // agrega un nuevo li tag dentro de la etiqueta ul
+	inputBox.value = ""; // una vez agregado la tarea deja el campo de entrada en blanco 
 
-// delete task function
+// borra la funcion de tarea
 function deleteTask(index){
-	let getLocalStorage = localStorage.getItem("Nuevo Todo"); // getting localstorage
+	let getLocalStorage = localStorage.getItem("Nuevo Todo"); // obtiene el almacenamiento local
 	listArr = JSON.parse(getLocalStorage);
-	listArr.splice(index, 1); // delete or remove the particular indexed li
-	// after remove the li again update the local storage 
-	localStorage.setItem("Nuevo Todo", JSON.stringify(listArr)); // transforming js object into a json sting
-	showTasks(); // calling showtasks function
+	listArr.splice(index, 1); // elimina la li indexada particular 
+	// despues de remover el li nuevamente, actualiza el almacenamiento local 
+	localStorage.setItem("Nuevo Todo", JSON.stringify(listArr)); // transforma el objeto js en una cadena json
+	showTasks(); // llama la funcion showtasks
 }
 
-// delete all tasks function
+// elimina toda las funciones de tarea
 deleteAllBtn.onclick = ()=>{
-	listArr =[]; // empty an array
-	// after delete all task again update the local storage
-	localStorage.setItem("Nuevo Todo", JSON.stringify(listArr)); // transforming js object into a json sting
-	showTasks(); // calling showtasks function
+	listArr =[]; // vacia un array
+	// despues de remover el li nuevamente, actualiza el almacenamiento local 
+	localStorage.setItem("Nuevo Todo", JSON.stringify(listArr)); // transforma el objeto js en una cadena json
+	showTasks(); // llama la funcion showtasks
 }
