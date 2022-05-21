@@ -8,41 +8,41 @@ const deleteAllBtn = document.querySelector(".footer button");
 inputBox.onkeyup = ()=>{
 	let userData = inputBox.value; // obtenemos la entrada del valor
 	if(userData.trim() != 0){		  // si el valor del usuario no tiene espacio
-		addBtn.classList.add("active");  // active the add button
+		addBtn.classList.add("active");  // activa el boton de agregar
 	} else{
-		addBtn.classList.remove("active");  // unactive the add button
+		addBtn.classList.remove("active");  // desactiva el boton de agregar
 	}
 }
-showTasks(); // calling showtasks function
+showTasks(); // llama la funcion showtasks
 
-// if user click on the add button
+// cuando el usuario hace click en el boton agregar
 addBtn.onclick = ()=>{
-	let userData = inputBox.value; // getting user entered value
-	let getLocalStorage = localStorage.getItem("Nuevo Todo"); // getting localstorage
-	if(getLocalStorage == null){						      // if localstorage is null
-		listArr = []; // creating blank array
+	let userData = inputBox.value; // obtiene el valor ingresado por el usuario
+	let getLocalStorage = localStorage.getItem("Nuevo Todo"); // obtiene el almacenamiento local
+	if(getLocalStorage == null){						      // si el almacenamiento local es null
+		listArr = []; // creando un array en blanco
 	} else{
-		listArr = JSON.parse(getLocalStorage); // transforming json string into a js object
+		listArr = JSON.parse(getLocalStorage); // transformando la cadena json en un objeto js
 	}
-	listArr.push(userData); // pushing or adding user data
-	localStorage.setItem("Nuevo Todo", JSON.stringify(listArr)); // transforming js object into a json sting
-	showTasks(); // calling showtasks function
-	addBtn.classList.remove("active");  // unactive the add button
+	listArr.push(userData); // empuja o agrega datos de usuario
+	localStorage.setItem("Nuevo Todo", JSON.stringify(listArr)); // transformando el objeto js en una cadena json
+	showTasks(); // llama la funcion showtasks
+	addBtn.classList.remove("active");  // desactiva el boton de agregado
 }
 
 
-// function to add task list inside ul
+// funcion para añadir lista de tareas dentro del ul
 function showTasks(){
-	let getLocalStorage = localStorage.getItem("Nuevo Todo"); // getting localstorage
-	if(getLocalStorage == null){						      // if localstorage is null
-		listArr = []; // creating blank array
+	let getLocalStorage = localStorage.getItem("Nuevo Todo"); // obtener el almacenamiento local
+	if(getLocalStorage == null){	// si el almacenamiento local es null
+		listArr = []; // creando un array blanco
 	} else{
-		listArr = JSON.parse(getLocalStorage); // transforming json string into a js object
+		listArr = JSON.parse(getLocalStorage); // transformando la cadena json en un objeto js
 	}
 	const pendingNumb = document.querySelector(".pendingNumb");
-	pendingNumb.textContent = listArr.length; // passing the length value in pendingNumb
-	if(listArr.length > 0){ // if array length is greater than 0
-		deleteAllBtn.classList.add("active"); // unactive the creal all button
+	pendingNumb.textContent = listArr.length; // pasando el valor length en pendingNumb
+	if(listArr.length > 0){ // si el array length es mayor que 0
+		deleteAllBtn.classList.add("active"); // inactiva el boton borrar todo
 	} else{
 		deleteAllBtn.classList.remove("active");
 	}
