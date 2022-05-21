@@ -52,7 +52,7 @@ function showTasks(){
 	});
 	todolist.innerHTML = newLiTag; // agrega un nuevo li tag dentro de la etiqueta ul
 	inputBox.value = ""; // una vez agregado la tarea deja el campo de entrada en blanco 
-
+}
 // borra la funcion de tarea
 function deleteTask(index){
 	let getLocalStorage = localStorage.getItem("Nuevo Todo"); // obtiene el almacenamiento local
